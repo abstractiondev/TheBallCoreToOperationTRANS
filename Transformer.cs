@@ -5,9 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using TheBallCore_v1_0;
+using Operation_v1_0;
+using MethodExecuteType = TheBallCore_v1_0.MethodExecuteType;
 using TB=TheBallCore_v1_0;
 using OP=Operation_v1_0;
+using OperationExecuteType = TheBallCore_v1_0.OperationExecuteType;
+using TargetDefinitionType = TheBallCore_v1_0.TargetDefinitionType;
+using TargetType = TheBallCore_v1_0.TargetType;
+using VariableType = TheBallCore_v1_0.VariableType;
 using VariableTypeState = Operation_v1_0.VariableTypeState;
 
 namespace TheBallCoreToOperationTRANS
@@ -56,13 +61,18 @@ namespace TheBallCoreToOperationTRANS
         {
             OP.OperationAbstractionType toAbs;
             toAbs = new OP.OperationAbstractionType()
-            {
-                Operations = new OP.OperationsType()
-                {
-                    codeNamespace = fromAbs.InstanceOfTheBall.semanticDomainName,
-                    Operation = fromAbs.InstanceOfTheBall.Operations.Select(tbOp => GetOPOperation(tbOp)).ToArray(),
-                },
-            };
+                        {
+                            Operations = new OperationsType[]
+                                             {
+                                                 new OP.OperationsType()
+                                                     {
+                                                         codeNamespace = fromAbs.InstanceOfTheBall.semanticDomainName,
+                                                         Operation =
+                                                             fromAbs.InstanceOfTheBall.Operations.Select(
+                                                                 tbOp => GetOPOperation(tbOp)).ToArray(),
+                                                     }
+                                             },
+                        };
             return toAbs;
         }
 
