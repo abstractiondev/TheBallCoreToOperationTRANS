@@ -112,8 +112,8 @@ namespace TheBallCoreToOperationTRANS
                     new OP.OperationReturnValuesType()
                         {
                             ReturnValue = tbOper.OperationReturnValues.ReturnValue.Select(GetOPVariable).ToArray(),
-                            Parameter = tbOper.OperationReturnValues.Parameter.Select(GetOPTarget).ToArray(),
-                            Target = tbOper.OperationReturnValues.Target.Select(GetOPTarget).ToArray(),
+                            Parameter = (tbOper.OperationReturnValues.Parameter ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
+                            Target = (tbOper.OperationReturnValues.Target ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
                         };
             }
             return op;
