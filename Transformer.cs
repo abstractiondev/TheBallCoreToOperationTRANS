@@ -168,6 +168,7 @@ namespace TheBallCoreToOperationTRANS
                                                        dataType = tbTarget.dataType,
                                                        designDesc = tbTarget.designDesc,
                                                        state = GetOPVariableTypeState(tbTarget.state),
+                                                       asyncSupportMode = (MethodExecuteTypeAsyncSupportMode) tbTarget.asyncSupportMode,
                                                        Parameter = (tbTarget.Parameter ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
                                                        Target = (tbTarget.Target ?? new TargetType[0]).Select(GetOPTarget).ToArray()
                                                    };
@@ -182,6 +183,7 @@ namespace TheBallCoreToOperationTRANS
                                                      designDesc = tbOperExec.designDesc,
                                                      Parameter = (tbOperExec.Parameter ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
                                                      Target = (tbOperExec.Target ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
+                                                     asyncSupportMode = (MethodExecuteTypeAsyncSupportMode) tbOperExec.asyncSupportMode,
                                                      ReturnValue = (tbOperExec.ReturnValue ?? new VariableType[0]).Select(GetOPVariable).ToArray(),
                                                      state = GetOPVariableTypeState(tbOperExec.state),
                                                      targetOperationName = tbOperExec.targetOperationName,
@@ -197,6 +199,7 @@ namespace TheBallCoreToOperationTRANS
                                                       designDesc = tbMethodExec.designDesc,
                                                       Parameter = (tbMethodExec.Parameter ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
                                                       Target = (tbMethodExec.Target ?? new TargetType[0]).Select(GetOPTarget).ToArray(),
+                                                      asyncSupportMode = (MethodExecuteTypeAsyncSupportMode) tbMethodExec.asyncSupportMode,
                                                       ReturnValue = (tbMethodExec.ReturnValue ?? new VariableType[0]) .Select(GetOPVariable).ToArray(),
                                                       state = GetOPVariableTypeState(tbMethodExec.state)
                                                   };
