@@ -68,8 +68,8 @@ namespace TheBallCoreToOperationTRANS
                                                      {
                                                          codeNamespace = fromAbs.InstanceOfTheBall.semanticDomainName,
                                                          Operation =
-                                                             fromAbs.InstanceOfTheBall.Operations.Select(
-                                                                 tbOp => GetOPOperation(tbOp)).ToArray(),
+                                                             fromAbs.InstanceOfTheBall.Operations?.Select(
+                                                                 GetOPOperation).ToArray() ?? new OperationType[0],
                                                      }
                                              },
                         };
